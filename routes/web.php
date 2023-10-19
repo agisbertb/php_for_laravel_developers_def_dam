@@ -1,19 +1,11 @@
 <?php
 
-use App\Models\TaskP;
+use App\Models\Task;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
-Route::get('/', function () {
-    return view('tasks',[
-        'tasks' => []
-    ]);
-});
-
-Route::get('/', function () {
-    return view('tasks',[
-        'tasks'=> TaskP::all()
-    ]);
-});
+Route::get('/',[TaskController::class,'index']);
+Route::get('/tasks',[TaskController::class,'index']);
 
 Route::get('/users', function () {
     return view('users');
